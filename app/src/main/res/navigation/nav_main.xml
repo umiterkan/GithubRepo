@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/repoListFragment">
+    app:startDestination="@id/userSearchFragment">
 
     <fragment
         tools:layout="@layout/fragment_repo_list"
@@ -20,8 +20,14 @@
         android:id="@+id/repoDetailFragment"
         android:name="com.erkan.githubrepo.ui.detail.RepoDetailFragment"
         android:label="{title}">
-        <argument android:name="repo" app:argType="com.erkan.githubrepo.data.model.Repo"/>
+        <argument android:name="repo" app:argType="com.example.data.model.Repo"/>
         <argument android:name="title" app:argType="string"/>
     </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_user_search"
+        android:id="@+id/userSearchFragment"
+        android:name="com.erkan.githubrepo.ui.search.UserSearchFragment"
+        android:label="UserSearchFragment" />
 
 </navigation>

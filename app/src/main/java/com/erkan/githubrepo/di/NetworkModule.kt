@@ -1,12 +1,13 @@
 package com.erkan.githubrepo.di
 
 import com.erkan.githubrepo.BuildConfig
+import com.example.data.remote.api.ApiServices
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -17,7 +18,7 @@ import javax.inject.Singleton
 
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
 
     private const val SERVICE_BASE_URL = BuildConfig.SERVICE_BASE_URL
@@ -33,7 +34,8 @@ object NetworkModule {
     fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
-    fun provideService(retrofit: Retrofit): ApiServices = retrofit.create(ApiServices::class.java)
+    fun provideService(retrofit: Retrofit): ApiServices = retrofit.create(
+        ApiServices::class.java)
 
 
 }

@@ -10,7 +10,7 @@
 
         <variable
             name="data"
-            type="com.erkan.githubrepo.data.model.Repo" />
+            type="com.example.data.model.Repo" />
 
         <variable
             name="myListener"

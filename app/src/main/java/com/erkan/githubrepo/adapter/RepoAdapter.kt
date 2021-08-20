@@ -1,16 +1,12 @@
 package com.erkan.githubrepo.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.erkan.githubrepo.R
-import com.erkan.githubrepo.data.model.Repo
+import com.example.data.model.Repo
 import com.erkan.githubrepo.databinding.ItemRepoBinding
-import timber.log.Timber
 
 /**
  * Created by umiterkan on 1/3/2021

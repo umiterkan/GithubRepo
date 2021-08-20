@@ -1,8 +1,8 @@
 package com.erkan.githubrepo.di
 
-import com.erkan.githubrepo.data.database.dao.FavoriteDao
-import com.erkan.githubrepo.data.datasource.RepoDataSource
-import com.erkan.githubrepo.data.repository.RepoRepository
+import com.example.data.database.dao.FavoriteDao
+import com.example.data.remote.datasource.RepoDataSource
+import com.example.data.remote.repository.RepoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

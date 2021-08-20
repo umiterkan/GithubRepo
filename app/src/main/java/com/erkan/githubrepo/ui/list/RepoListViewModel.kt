@@ -1,23 +1,25 @@
 package com.erkan.githubrepo.ui.list
 
 import androidx.databinding.ObservableBoolean
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.erkan.githubrepo.data.Resource
-import com.erkan.githubrepo.data.database.dao.FavoriteDao
-import com.erkan.githubrepo.data.database.entity.Favorite
-import com.erkan.githubrepo.data.model.Repo
-import com.erkan.githubrepo.data.repository.RepoRepository
+import com.example.data.Resource
+import com.example.data.database.dao.FavoriteDao
+import com.example.data.database.entity.Favorite
+import com.example.data.model.Repo
+import com.example.data.remote.repository.RepoRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 /**
  * Created by umiterkan on 1/2/2021
  */
 
-class RepoListViewModel @ViewModelInject constructor(
+@HiltViewModel
+class RepoListViewModel @Inject constructor(
     val provideRepository: RepoRepository,
     val favoriteDao: FavoriteDao
 ) : ViewModel() {
@@ -33,7 +35,7 @@ class RepoListViewModel @ViewModelInject constructor(
     private fun insertFavorite(repo: Repo) {
         if (!repo.id.isNullOrEmpty() && !repo.name.isNullOrEmpty()) {
             viewModelScope.launch {
-                favoriteDao.insert(Favorite(repo.id.toInt(), repo.name!!))
+                favoriteDao.insert(Favorite(repo.id!!.toInt(), repo.name!!))
             }
         }
     }
@@ -41,7 +43,7 @@ class RepoListViewModel @ViewModelInject constructor(
     private fun deleteFavorite(repo: Repo) {
         if (!repo.id.isNullOrEmpty()) {
             viewModelScope.launch {
-                favoriteDao.delete(repo.id.toInt())
+                favoriteDao.delete(repo.id!!.toInt())
             }
         }
     }

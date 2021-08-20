@@ -4,10 +4,9 @@ import android.view.View
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.erkan.githubrepo.R
-import com.erkan.githubrepo.data.model.Repo
+import com.example.data.model.Repo
 import com.squareup.picasso.Picasso
 
 /**
